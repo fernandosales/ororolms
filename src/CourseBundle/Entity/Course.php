@@ -70,6 +70,19 @@ class Course extends ExtendCourse implements DatesAwareInterface
      */
     private $courseNumber;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", nullable=true)
+     * @ConfigField(
+     *      defaultValues={
+     *          "dataaudit"={
+     *              "auditable"=true
+     *          }
+     *      }
+     *)
+     */
+    private $name;
     
     public function __construct()
     {

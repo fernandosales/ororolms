@@ -40,6 +40,7 @@ class CourseBundleInstaller implements Installation
         $table = $schema->createTable(self::COURSE_TABLE_NAME);
         $table->addColumn('id',                                     'integer',['autoincrement' => true]);
         $table->addColumn('course_number',                          'string', ['length' => 100, 'notnull' => false]);
+        $table->addColumn('name',                                   'string', ['length' => 100, 'notnull' => false]);
 
         // Course PRIMARY KEY
         $table->setPrimaryKey(['id']);
