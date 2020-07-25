@@ -12,6 +12,8 @@ use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\ConfigField;
 use Oro\Bundle\OrganizationBundle\Entity\Organization;
 use Oro\Bundle\UserBundle\Entity\User;
+use Oro\Bundle\EntityBundle\EntityProperty\UpdatedByAwareInterface;
+use Oro\Bundle\EntityBundle\EntityProperty\UpdatedByAwareTrait;
 
 /**
  * Entity represents course and handles all related mappings
@@ -43,9 +45,10 @@ use Oro\Bundle\UserBundle\Entity\User;
  * @SuppressWarnings(PHPMD.TooManyPublicMethods)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
  */
-class Course extends ExtendCourse implements DatesAwareInterface
+class Course extends ExtendCourse implements DatesAwareInterface, UpdatedByAwareInterface
 {
     use DatesAwareTrait;
+    use UpdatedByAwareTrait;
 
     /**
      * @var integer
@@ -83,7 +86,7 @@ class Course extends ExtendCourse implements DatesAwareInterface
      *)
      */
     private $name;
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -92,7 +95,7 @@ class Course extends ExtendCourse implements DatesAwareInterface
      * Get the value of id
      *
      * @return  integer
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -104,7 +107,7 @@ class Course extends ExtendCourse implements DatesAwareInterface
      * @param  integer  $id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
@@ -116,7 +119,7 @@ class Course extends ExtendCourse implements DatesAwareInterface
      * Get the value of courseNumber
      *
      * @return  string
-     */ 
+     */
     public function getCourseNumber()
     {
         return $this->courseNumber;
@@ -128,10 +131,34 @@ class Course extends ExtendCourse implements DatesAwareInterface
      * @param  string  $courseNumber
      *
      * @return  self
-     */ 
+     */
     public function setCourseNumber(string $courseNumber)
     {
         $this->courseNumber = $courseNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of name
+     *
+     * @return  string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @param  string  $name
+     *
+     * @return  self
+     */
+    public function setName(string $name)
+    {
+        $this->name = $name;
 
         return $this;
     }
