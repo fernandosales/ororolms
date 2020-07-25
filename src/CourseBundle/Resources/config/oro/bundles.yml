@@ -1,0 +1,2 @@
+bundles:
+    - { name: CourseBundle\CourseBundle, priority: 10}
