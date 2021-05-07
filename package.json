@@ -42,7 +42,7 @@
         "scriptjs": "2.5.9",
         "slick-carousel": "1.6.0",
         "timepicker": "1.11.*",
-        "underscore": "1.9.*",
+        "underscore": "1.12.*",
         "when": "2.4.0",
         "xregexp": "3.2.*"
     },
